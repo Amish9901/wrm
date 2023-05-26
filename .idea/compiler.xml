@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wrm-project-api-model" />
+        <module name="wrm-project-api" />
+        <module name="wrm-project-api-dist" />
+        <module name="wrm-project-dal-dynamodb" />
+        <module name="wrm-project-dal-mysql" />
+        <module name="wrm-project-dal" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wrm-project (1)" target="1.8" />
+      <module name="wrm-project (2)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

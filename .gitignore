@@ -1,0 +1,7 @@
+# Project exclude paths
+/wrm-project-api/target/
+/wrm-project-api-dist/target/
+/wrm-project-api-model/target/
+/wrm-project-dal/target/
+/wrm-project-dal-dynamodb/target/
+/wrm-project-dal-mysql/target/
