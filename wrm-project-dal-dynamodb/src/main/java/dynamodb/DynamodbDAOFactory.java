@@ -19,6 +19,8 @@ public class DynamodbDAOFactory implements DAOAbstractFactory {
     public DynamodbDAOFactory(DynamoDbConfig serviceConfig ) {
         AmazonDynamoDB amazonDynamoDB = createDynamoClient(serviceConfig);
         DynamoDBMapper mapper = new DynamoDBMapper(amazonDynamoDB);
+
+
         DynamoDB client = new DynamoDB(amazonDynamoDB);
          dynamoDBTripsModelDAO = new DynamoDBTripsModelDAO(mapper,client);
     }
@@ -41,4 +43,6 @@ public class DynamodbDAOFactory implements DAOAbstractFactory {
     public TripsModelDAO getTripsModelDAO() {
         return dynamoDBTripsModelDAO;
     }
+
+
 }

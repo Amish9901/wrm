@@ -41,7 +41,6 @@ public class DynamoTest extends DalTripTestClass {
             DynamoDB dynamoDB = new DynamoDB(amazonDb);
             System.out.println("Dynamo DB created");
 
-            DynamoDBMapper mapper = new DynamoDBMapper(amazonDb);
 
             String tableName ="wrm_trips";
             DynamoTestUtil.createTable(dynamoDB, tableName, "tripID", "S");
@@ -75,5 +74,6 @@ public class DynamoTest extends DalTripTestClass {
             throw new RuntimeException(e);
         }
     }
+
 
 }
