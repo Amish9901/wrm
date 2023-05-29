@@ -65,10 +65,7 @@ public class MySQLTripTest extends DalTripTestClass {
         conn.prepareStatement(CREATE_WRM_TRIP_EVENT_COUNT_TABLE).executeUpdate();
         conn.close();
     }
-    @Test
-    public void testGetAllTrips() {
-        System.out.println("hello world");
-    }
+
     @AfterClass
     public static void afterclass () {
         System.out.println("test finished");

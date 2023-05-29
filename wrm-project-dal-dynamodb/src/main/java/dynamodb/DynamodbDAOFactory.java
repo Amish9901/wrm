@@ -7,7 +7,6 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import dal.DAOAbstractFactory;
 import dal.TripsModelDAO;
 
@@ -19,10 +18,7 @@ public class DynamodbDAOFactory implements DAOAbstractFactory {
     public DynamodbDAOFactory(DynamoDbConfig serviceConfig ) {
         AmazonDynamoDB amazonDynamoDB = createDynamoClient(serviceConfig);
         DynamoDBMapper mapper = new DynamoDBMapper(amazonDynamoDB);
-
-
-        DynamoDB client = new DynamoDB(amazonDynamoDB);
-         dynamoDBTripsModelDAO = new DynamoDBTripsModelDAO(mapper,client);
+         dynamoDBTripsModelDAO = new DynamoDBTripsModelDAO(mapper);
     }
 
 

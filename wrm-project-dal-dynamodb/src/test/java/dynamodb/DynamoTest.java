@@ -1,15 +1,17 @@
 package dynamodb;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.local.main.ServerRunner;
 import com.amazonaws.services.dynamodbv2.local.server.DynamoDBProxyServer;
 import dal.DAOAbstractFactory;
 import dal.DalTripTestClass;
+import dynamodb.model.SCHEMA;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+
 
 public class DynamoTest extends DalTripTestClass {
 
@@ -42,12 +44,12 @@ public class DynamoTest extends DalTripTestClass {
             System.out.println("Dynamo DB created");
 
 
-            String tableName ="wrm_trips";
-            DynamoTestUtil.createTable(dynamoDB, tableName, "tripID", "S");
+            String tableName = SCHEMA.TABLE_NAME;
+            DynamoTestUtil.createTable(dynamoDB, tableName, SCHEMA.COL_TRIP_ID, "S");
             System.out.println("Table created '" + tableName + "'");
 
-            String indexName = "driverDetails";
-            DynamoTestUtil.createIndex(dynamoDB, tableName, indexName, "driverID", "S");
+            String indexName = SCHEMA.GSI_INDEX_NAME;
+            DynamoTestUtil.createIndex(dynamoDB, tableName, indexName, SCHEMA.COL_DRIVER_ID, "S");
             System.out.println("Index created '" + indexName + "@" + tableName + "'");
 
 

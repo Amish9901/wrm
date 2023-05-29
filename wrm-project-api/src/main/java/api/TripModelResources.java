@@ -1,9 +1,11 @@
 package api;
 
+import api.converter.ApiModelConverter;
 import api.log.ResponseStatusHelper;
 import api.service.DataService;
 import dal.TripsModelDAO;
 import dal.model.TripsModelDO;
+import model.TripsModel;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,30 +17,28 @@ public class TripModelResources {
     @GET
     @Path("/tripid/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public dal.model.TripsModelDO getTripsById(@PathParam("id") String id) {
+    public TripsModel getTripsById(@PathParam("id") String id) {
         TripsModelDAO tripsModelDAO = DataService.getDAOFactory().getTripsModelDAO();
         if(tripsModelDAO == null){
             ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
-            System.out.println("no trips model");
             return null;
         }
         assert tripsModelDAO != null;
         TripsModelDO tripModel = tripsModelDAO.getTripByID(id);
-        return tripModel;
+        return ApiModelConverter.convertToApiModel(tripModel);
     }
     @GET
     @Path("/driverid/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<dal.model.TripsModelDO> getTripByDriverID(@PathParam("id") String id) {
+    public List<TripsModel> getTripByDriverID(@PathParam("id") String id) {
         TripsModelDAO tripsModelDAO = DataService.getDAOFactory().getTripsModelDAO();
         if(tripsModelDAO == null){
                 ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
-            System.out.println("no trips model");
             return null;
         }
         assert tripsModelDAO != null;
         List<TripsModelDO> tripModel = tripsModelDAO.getTripByDriverID(id);
-        return tripModel;
+        return ApiModelConverter.convertToApiModel(tripModel);
     }
 
     @POST
@@ -47,6 +47,7 @@ public class TripModelResources {
     @Produces(MediaType.APPLICATION_JSON)
     public String var(TripsModelDO trips){
         TripsModelDAO tripsModelDAO = DataService.getDAOFactory().getTripsModelDAO();
+        System.out.println(trips.getTripID());
         if(tripsModelDAO == null){
             ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
             System.out.println("no trips model");
@@ -57,11 +58,5 @@ public class TripModelResources {
         return "data has been saved successfully";
     }
 
-    @GET
-    @Path("/abc")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String abc() {
-        return "abc";
-    }
 
 }

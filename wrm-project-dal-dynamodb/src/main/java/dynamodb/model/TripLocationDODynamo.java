@@ -5,9 +5,9 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 
 @DynamoDBDocument
 public class TripLocationDODynamo {
-    @DynamoDBAttribute(attributeName = "time")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_LOCATION_TIME)
     private Long time;
-    @DynamoDBAttribute(attributeName = "location")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_LOCATION_LOCATION)
     private String location;
     public void setLocation(String location){
         this.location = location;

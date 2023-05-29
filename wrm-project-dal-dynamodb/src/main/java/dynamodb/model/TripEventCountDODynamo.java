@@ -5,9 +5,9 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 
 @DynamoDBDocument
 public class TripEventCountDODynamo {
-    @DynamoDBAttribute(attributeName = "eventType")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENT_COUNT_EVENT_TYPE )
     private String eventType;
-    @DynamoDBAttribute(attributeName = "eventCount")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENT_COUNT_EVENT_COUNT )
     private int eventCount;
     public void setEventType(String eventType){
 

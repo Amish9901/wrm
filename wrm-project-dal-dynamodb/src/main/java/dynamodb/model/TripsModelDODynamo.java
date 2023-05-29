@@ -5,32 +5,33 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import javax.swing.plaf.synth.SynthCheckBoxMenuItemUI;
 import java.util.List;
 
-@DynamoDBTable(tableName = "wrm_trips")
+@DynamoDBTable(tableName = SCHEMA.TABLE_NAME)
 public class TripsModelDODynamo {
-    @DynamoDBHashKey(attributeName = "tripID")
+    @DynamoDBHashKey(attributeName = SCHEMA.COL_TRIP_ID)
 
     private String tripID;
 
 
     private String driverID;
-    @DynamoDBAttribute(attributeName = "tripStartTime")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_START_TIME)
 
     private Long tripStartTime;
-    @DynamoDBAttribute(attributeName = "tripEndTime")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_END_TIME)
 
     private Long tripEndTime;
-    @DynamoDBAttribute(attributeName = "tripDate")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_DATE)
 
     private String tripDate;
-    @DynamoDBAttribute(attributeName = "tripEvents")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS)
 
     private List<TripsEventsDODynamo> tripEvents;
-    @DynamoDBAttribute(attributeName = "event_count")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENT_COUNT)
 
     private List<TripEventCountDODynamo> tripEventCount;
-    @DynamoDBAttribute(attributeName = "tripEventLocation")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENT_LOCATION)
 
     private List<TripLocationDODynamo> tripEventLocation;
 
@@ -43,7 +44,7 @@ public class TripsModelDODynamo {
     public void setDriverID(String driverID){
         this.driverID = driverID;
     }
-    @DynamoDBIndexHashKey(globalSecondaryIndexName = "driverDetails" ,attributeName ="driverID")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = SCHEMA.GSI_INDEX_NAME ,attributeName = SCHEMA.COL_DRIVER_ID)
     public String getDriverID(){
         return driverID;
     }

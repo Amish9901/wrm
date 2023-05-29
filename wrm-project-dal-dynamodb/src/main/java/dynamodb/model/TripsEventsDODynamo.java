@@ -5,17 +5,17 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 
 @DynamoDBDocument
 public class TripsEventsDODynamo {
-    @DynamoDBAttribute(attributeName = "eventID")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS_EVENT_ID)
     private String eventID;
-    @DynamoDBAttribute(attributeName = "eventType")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS_EVENT_TYPE)
     private String eventType;
-    @DynamoDBAttribute(attributeName = "startingLocation")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS_STARTING_LOCATION)
     private String startingLocation;
-    @DynamoDBAttribute(attributeName = "endingLocation")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS_ENDING_LOCATION)
     private String endingLocation;
-    @DynamoDBAttribute(attributeName = "startTime")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS_START_TIME)
     private String startTime;
-    @DynamoDBAttribute(attributeName = "endTime")
+    @DynamoDBAttribute(attributeName = SCHEMA.COL_TRIP_EVENTS_END_TIME)
     private String endTime;
 
     public void setEventID(String eventID){

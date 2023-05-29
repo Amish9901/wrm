@@ -19,7 +19,7 @@ public class DataService {
         // use "trip" to run the dynamo
         // use "driver" to run the mysql
 
-        ApcheDataServiceConfig serviceConfig = new ApcheDataServiceConfig("driver");
+        ApcheDataServiceConfig serviceConfig = new ApcheDataServiceConfig("trip");
         new DataService(serviceConfig);
 
 
@@ -31,7 +31,7 @@ public class DataService {
                daoFactory = new DynamodbDAOFactory((DynamoDbConfig)serviceConfig);
             }
             else{
-                daoFactory = new MysqlDAOFactory(serviceConfig.getDataSource());
+                daoFactory = new MysqlDAOFactory(serviceConfig.getDataBaseName());
             }
         }
     }

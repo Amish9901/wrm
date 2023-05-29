@@ -39,6 +39,7 @@ public class MysqlTripModelDAO extends BaseDao implements TripsModelDAO {
 
     @Override
     public void postData(TripsModelDO trips) {
+        System.out.println("2");
         try {
             update(SQL_SAVE_TRIP_DATA,
                     trips.getTripID(),
@@ -50,6 +51,7 @@ public class MysqlTripModelDAO extends BaseDao implements TripsModelDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("3");
         insertTripEventCounts(trips.getTripID(), trips.getTripEvents());
         insertTripEvents(trips.getTripID(), trips.getTripEvents());
         insertTripLocations(trips.getTripID(), trips.getTripEventLocation());
