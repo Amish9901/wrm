@@ -7,6 +7,7 @@ import dal.TripsModelDAO;
 import dal.model.TripsModelDO;
 import model.TripsModel;
 
+import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,7 +18,7 @@ public class TripModelResources {
     @GET
     @Path("/tripid/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public TripsModel getTripsById(@PathParam("id") String id) {
+    public TripsModel getTripsById(@NotNull @PathParam("id") String id) {
         TripsModelDAO tripsModelDAO = DataService.getInstance().getDAOFactory().getTripsModelDAO();
         if(tripsModelDAO == null){
             ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
@@ -30,7 +31,7 @@ public class TripModelResources {
     @GET
     @Path("/driverid/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<TripsModel> getTripByDriverID(@PathParam("id") String id) {
+    public List<TripsModel> getTripByDriverID(@NotNull @PathParam("id") String id) {
         TripsModelDAO tripsModelDAO = DataService.getInstance().getDAOFactory().getTripsModelDAO();
         if(tripsModelDAO == null){
                 ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
