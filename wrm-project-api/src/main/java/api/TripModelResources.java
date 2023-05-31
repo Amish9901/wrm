@@ -18,7 +18,7 @@ public class TripModelResources {
     @Path("/tripid/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public TripsModel getTripsById(@PathParam("id") String id) {
-        TripsModelDAO tripsModelDAO = DataService.getDAOFactory().getTripsModelDAO();
+        TripsModelDAO tripsModelDAO = DataService.getInstance().getDAOFactory().getTripsModelDAO();
         if(tripsModelDAO == null){
             ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
             return null;
@@ -31,7 +31,7 @@ public class TripModelResources {
     @Path("/driverid/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public List<TripsModel> getTripByDriverID(@PathParam("id") String id) {
-        TripsModelDAO tripsModelDAO = DataService.getDAOFactory().getTripsModelDAO();
+        TripsModelDAO tripsModelDAO = DataService.getInstance().getDAOFactory().getTripsModelDAO();
         if(tripsModelDAO == null){
                 ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);
             return null;
@@ -45,8 +45,8 @@ public class TripModelResources {
     @Path("/postdata")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String var(TripsModelDO trips){
-        TripsModelDAO tripsModelDAO = DataService.getDAOFactory().getTripsModelDAO();
+    public String var(TripsModelDO trips) {
+        TripsModelDAO tripsModelDAO = DataService.getInstance().getDAOFactory().getTripsModelDAO();
         System.out.println(trips.getTripID());
         if(tripsModelDAO == null){
             ResponseStatusHelper.setStatus(Response.Status.NOT_FOUND);

@@ -38,8 +38,9 @@ public class MysqlTripModelDAO extends BaseDao implements TripsModelDAO {
 
 
     @Override
-    public void postData(TripsModelDO trips) {
+    public void postData(TripsModelDO trips)  {
         System.out.println("2");
+        System.out.println(trips.getDriverID());
         try {
             update(SQL_SAVE_TRIP_DATA,
                     trips.getTripID(),
@@ -56,6 +57,9 @@ public class MysqlTripModelDAO extends BaseDao implements TripsModelDAO {
         insertTripEvents(trips.getTripID(), trips.getTripEvents());
         insertTripLocations(trips.getTripID(), trips.getTripEventLocation());
     }
+
+
+
     private void insertTripEventCounts(String tripId, List<TripsEventsDO> tripEvents) {
         if (tripId == null || tripEvents == null) {
             return;

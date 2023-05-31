@@ -19,10 +19,10 @@
             <outputDirectory>config</outputDirectory>
             <directory>${project.basedir}/../wrm-project-api/src/main/resources</directory>
         </fileSet>
-<!--        <fileSet>-->
-<!--            <outputDirectory></outputDirectory>-->
-<!--            <directory>${project.basedir}/bin</directory>-->
-<!--        </fileSet>-->
+        <fileSet>
+            <outputDirectory></outputDirectory>
+            <directory>${project.basedir}/bin</directory>
+        </fileSet>
         <fileSet>
             <outputDirectory>lib</outputDirectory>
             <directory>${project.basedir}/src/main/resources</directory>

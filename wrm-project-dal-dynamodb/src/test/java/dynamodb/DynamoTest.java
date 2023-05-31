@@ -72,6 +72,7 @@ public class DynamoTest extends DalTripTestClass {
         }
         try {
             server.stop();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

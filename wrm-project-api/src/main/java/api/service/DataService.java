@@ -1,6 +1,8 @@
 package api.service;
 
+import api.config.ApacheConfigBase;
 import api.config.ApacheDataServiceAbstractConfig;
+import api.config.ApacheDataServiceDynamoConfig;
 import api.config.ApcheDataServiceConfig;
 import dal.DAOAbstractFactory;
 import dynamodb.DynamoDbConfig;
@@ -19,10 +21,9 @@ public class DataService {
         // use "trip" to run the dynamo
         // use "driver" to run the mysql
 
-        ApcheDataServiceConfig serviceConfig = new ApcheDataServiceConfig("trip");
-        new DataService(serviceConfig);
-
-
+        if(instance == null) {
+            instance = new DataService(new ApcheDataServiceConfig("driver"));
+        }
     }
 
     private  DataService(ApacheDataServiceAbstractConfig serviceConfig ) {
@@ -36,7 +37,7 @@ public class DataService {
         }
     }
 
-    public static DAOAbstractFactory getDAOFactory() {
+    public  DAOAbstractFactory getDAOFactory() {
         return daoFactory;
     }
 }

@@ -11,6 +11,4 @@
         <property name="user">root</property>
         <property name="password">amish</property>
     </named-config>
-
-
 </c3p0-config>

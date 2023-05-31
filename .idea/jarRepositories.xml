@@ -12,6 +12,11 @@
       <option name="url" value="https://edriving-810119873722.d.codeartifact.us-west-2.amazonaws.com/maven/telematics-repo/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="dynamodb-local" />
+      <option name="name" value="DynamoDB Local Release Repository" />
+      <option name="url" value="https://s3-us-west-2.amazonaws.com/dynamodb-local/release" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="edriving-telematics-repo" />
       <option name="name" value="edriving-telematics-repo" />
       <option name="url" value="https://edriving-810119873722.d.codeartifact.us-west-2.amazonaws.com/maven/telematics-repo/" />
